@@ -2,7 +2,7 @@
 db.solarSystem.aggregate([{"$project": { "gravity": "$gravity.value" } }]);
 
 // adding ``name`` and removing ``_id`` from projection
-db.solarSystem.aggregate([{"$project": { "_id": 0, "name": 1, "gravity": "$gravity.value" } }])''
+db.solarSystem.aggregate([{"$project": { "_id": 0, "name": 1, "gravity": "$gravity.value" } }])
 
 // adding more fields to the projected document
 db.solarSystem.aggregate([
@@ -15,7 +15,7 @@ db.solarSystem.aggregate([
     "mass": "$mass.value",
     "radius": "$radius.value",
     "sma": "$sma.value" }
-}]);
+}]).pretty();
 
 // using ``$addFields`` to generate the new computed field values
 db.solarSystem.aggregate([
@@ -24,7 +24,7 @@ db.solarSystem.aggregate([
     "mass": "$mass.value",
     "radius": "$radius.value",
     "sma": "$sma.value"}
-}]);
+}]).pretty();
 
 // combining ``$project`` with ``$addFields``
 db.solarSystem.aggregate([
