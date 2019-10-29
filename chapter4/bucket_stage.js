@@ -13,7 +13,7 @@ db.movies.aggregate([
   {
     "$bucket": {
       "groupBy": "$imdb.rating",
-      "boundaries:" [0, 5, 8, Infinity],
+      "boundaries": [0, 5, 8, Infinity],
       "default": "not rated"
     }
   }

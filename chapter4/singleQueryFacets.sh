@@ -31,3 +31,10 @@ db.companies.aggregate([
   {"$match": { "offices.city": {"$ne": ""}  }}   ,
   {"$sortByCount": "$offices.city"}] )
 '
+
+mongo startups --eval '
+db.companies.aggregate([
+  {"$match": { "$text": {"$search": "network"}  }  },
+  {"$unwind": "$offices"}
+]).pretty()
+'
